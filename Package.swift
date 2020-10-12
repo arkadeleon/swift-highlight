@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "Highlighter",
+    platforms: [
+        .iOS(.v12)
+    ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
@@ -20,7 +23,16 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Highlighter",
-            dependencies: []),
+            dependencies: [],
+            exclude: [
+                "Resources/Highlight.js/CHANGES.md",
+                "Resources/Highlight.js/LICENSE",
+                "Resources/Highlight.js/README.md",
+                "Resources/Highlight.js/README.ru.md"
+            ],
+            resources: [
+                .copy("Resources/Highlight.js")
+            ]),
         .testTarget(
             name: "HighlighterTests",
             dependencies: ["Highlighter"]),
