@@ -1,12 +1,20 @@
+//
+//  Highlighter.swift
+//
+//
+//  Created by Leon Li on 2020/10/12.
+//
 
 import UIKit
 import JavaScriptCore
 
 open class Highlighter {
 
+    public var style: Style
+
     private let hljs: JSValue
 
-    public init?() {
+    public init?(style: Style = .default) {
         let context = JSContext()!
 
         let jsURL = Bundle.module.resourceURL!.appendingPathComponent("Highlight.js/highlight.pack.js")
@@ -17,15 +25,15 @@ open class Highlighter {
             return nil
         }
 
+        self.style = style
         self.hljs = hljs
     }
 
-    open func highlight(_ code: String) -> NSAttributedString? {
-        let cssURL = Bundle.module.resourceURL!.appendingPathComponent("Highlight.js/styles/default.css")
+    open func highlight(_ text: String) -> NSAttributedString? {
+        let cssURL = Bundle.module.resourceURL!.appendingPathComponent("Highlight.js/styles/\(style.rawValue).css")
         let cssContents = try! String(contentsOf: cssURL)
 
-        guard let highlightedCode = hljs
-                .invokeMethod("highlightAuto", withArguments: [code])?.objectForKeyedSubscript("value")?.toString() else {
+        guard let highlightedText = hljs.invokeMethod("highlightAuto", withArguments: [text])?.objectForKeyedSubscript("value")?.toString() else {
             return nil
         }
 
@@ -34,7 +42,7 @@ open class Highlighter {
             \(cssContents)
         </style>
         <pre><code class="hljs">
-            \(highlightedCode)
+            \(highlightedText)
         </code></pre>
         """
         guard let data = string.data(using: .utf8) else {
