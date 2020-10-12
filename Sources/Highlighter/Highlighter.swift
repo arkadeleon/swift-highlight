@@ -9,7 +9,7 @@ open class Highlighter {
     public init?() {
         let context = JSContext()!
 
-        let jsURL = Bundle.module.bundleURL.appendingPathComponent("Highlight.js/highlight.pack.js")
+        let jsURL = Bundle.module.resourceURL!.appendingPathComponent("Highlight.js/highlight.pack.js")
         let jsContents = try! String(contentsOf: jsURL)
         context.evaluateScript(jsContents)
 
@@ -21,7 +21,7 @@ open class Highlighter {
     }
 
     open func highlight(_ code: String) -> NSAttributedString? {
-        let cssURL = Bundle.module.bundleURL.appendingPathComponent("Highlight.js/styles/default.css")
+        let cssURL = Bundle.module.resourceURL!.appendingPathComponent("Highlight.js/styles/default.css")
         let cssContents = try! String(contentsOf: cssURL)
 
         guard let highlightedCode = hljs
