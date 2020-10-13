@@ -10,11 +10,11 @@ import JavaScriptCore
 
 open class Highlighter {
 
-    public var style: Style
+    public var style: HighlightingStyle
 
     private let hljs: JSValue
 
-    public init?(style: Style = .default) {
+    public init?(style: HighlightingStyle = .default) {
         let context = JSContext()!
 
         let jsURL = Bundle.module.resourceURL!.appendingPathComponent("Highlight.js/highlight.pack.js")
