@@ -17,7 +17,7 @@ open class Highlighter {
     public init?(style: HighlightingStyle = .default) {
         let context = JSContext()!
 
-        let jsURL = Bundle.module.resourceURL!.appendingPathComponent("Highlight.js/highlight.pack.js")
+        let jsURL = Bundle(for: Highlighter.self).resourceURL!.appendingPathComponent("Highlight.js/highlight.pack.js")
         let jsContents = try! String(contentsOf: jsURL)
         context.evaluateScript(jsContents)
 
@@ -30,7 +30,7 @@ open class Highlighter {
     }
 
     open func highlight(_ text: String) -> NSAttributedString? {
-        let cssURL = Bundle.module.resourceURL!.appendingPathComponent("Highlight.js/styles/\(style.rawValue).css")
+        let cssURL = Bundle(for: Highlighter.self).resourceURL!.appendingPathComponent("Highlight.js/styles/\(style.rawValue).css")
         let cssContents = try! String(contentsOf: cssURL)
 
         guard let highlightedText = hljs.invokeMethod("highlightAuto", withArguments: [text])?.objectForKeyedSubscript("value")?.toString() else {

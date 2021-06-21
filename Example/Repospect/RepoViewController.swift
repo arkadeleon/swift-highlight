@@ -17,7 +17,7 @@ class RepoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchBar.text = "arkadeleon/highlighter"
+        searchBar.text = "arkadeleon/highlight"
         search()
     }
 

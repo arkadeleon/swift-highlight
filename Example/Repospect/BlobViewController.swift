@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Highlighter
+import Highlight
 
 class BlobViewController: UIViewController {
 
