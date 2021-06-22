@@ -1,1 +1,1 @@
-# Highlighter
+# Highlight

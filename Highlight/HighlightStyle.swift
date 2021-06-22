@@ -1,11 +1,11 @@
 //
-//  HighlightingStyle.swift
-//  
+//  HighlightStyle.swift
+//  Highlight
 //
 //  Created by Leon Li on 2020/10/12.
 //
 
-public enum HighlightingStyle: String {
+public enum HighlightStyle: String {
     case a11yDark = "a11y-dark"
     case a11yLight = "a11y-light"
     case agate = "agate"

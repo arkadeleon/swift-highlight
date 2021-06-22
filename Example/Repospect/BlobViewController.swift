@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import WebKit
 import Highlight
 
 class BlobViewController: UIViewController {
 
     let node: Tree.Node
 
-    var textView: UITextView!
+    var webView: WKWebView!
 
     init(node: Tree.Node) {
         self.node = node
@@ -27,10 +28,9 @@ class BlobViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        textView = UITextView(frame: view.bounds)
-        textView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        textView.isEditable = false
-        view.addSubview(textView)
+        webView = WKWebView(frame: view.bounds)
+        webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(webView)
 
         let task = URLSession.shared.dataTask(with: node.url) { (data, response, error) in
             guard let data = data else {
@@ -46,7 +46,7 @@ class BlobViewController: UIViewController {
                 return
             }
             DispatchQueue.main.async {
-                self.textView.attributedText = Highlighter()?.highlight(decodedString)
+                self.webView.loadCode(decodedString)
             }
         }
         task.resume()
