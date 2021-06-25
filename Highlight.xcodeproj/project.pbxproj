@@ -9,13 +9,30 @@
 /* Begin PBXBuildFile section */
 		350A82772685765600D8372C /* highlightjs in Resources */ = {isa = PBXBuildFile; fileRef = 350A82762685765600D8372C /* highlightjs */; };
 		350A827926857ADF00D8372C /* UITextView+Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A827826857ADF00D8372C /* UITextView+Highlight.swift */; };
+		350A827B2685A0D800D8372C /* Highlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A827A2685A0D800D8372C /* Highlighter.swift */; };
+		350A82842685AF4500D8372C /* HighlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A82832685AF4500D8372C /* HighlightTests.swift */; };
+		350A82862685AF4500D8372C /* Highlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 354717A3268093CD008184CD /* Highlight.framework */; };
 		354717B02680941B008184CD /* HighlightStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354717AE2680941B008184CD /* HighlightStyle.swift */; };
 		354717B926809BBE008184CD /* WKWebView+Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354717B826809BBD008184CD /* WKWebView+Highlight.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		350A82872685AF4500D8372C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3547179A268093CD008184CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 354717A2268093CD008184CD;
+			remoteInfo = Highlight;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		350A82762685765600D8372C /* highlightjs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = highlightjs; path = Resources/highlightjs; sourceTree = "<group>"; };
 		350A827826857ADF00D8372C /* UITextView+Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Highlight.swift"; sourceTree = "<group>"; };
+		350A827A2685A0D800D8372C /* Highlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highlighter.swift; sourceTree = "<group>"; };
+		350A82812685AF4500D8372C /* HighlightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HighlightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		350A82832685AF4500D8372C /* HighlightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightTests.swift; sourceTree = "<group>"; };
+		350A82852685AF4500D8372C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		354717A3268093CD008184CD /* Highlight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Highlight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		354717A7268093CD008184CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		354717AE2680941B008184CD /* HighlightStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightStyle.swift; sourceTree = "<group>"; };
@@ -23,6 +40,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		350A827E2685AF4500D8372C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				350A82862685AF4500D8372C /* Highlight.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		354717A0268093CD008184CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -33,10 +58,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		350A82822685AF4500D8372C /* HighlightTests */ = {
+			isa = PBXGroup;
+			children = (
+				350A82832685AF4500D8372C /* HighlightTests.swift */,
+				350A82852685AF4500D8372C /* Info.plist */,
+			);
+			name = HighlightTests;
+			path = Tests/HighlightTests;
+			sourceTree = "<group>";
+		};
 		35471799268093CD008184CD = {
 			isa = PBXGroup;
 			children = (
 				354717A5268093CD008184CD /* Highlight */,
+				350A82822685AF4500D8372C /* HighlightTests */,
 				354717A4268093CD008184CD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				354717A3268093CD008184CD /* Highlight.framework */,
+				350A82812685AF4500D8372C /* HighlightTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -52,6 +89,7 @@
 		354717A5268093CD008184CD /* Highlight */ = {
 			isa = PBXGroup;
 			children = (
+				350A827A2685A0D800D8372C /* Highlighter.swift */,
 				354717AE2680941B008184CD /* HighlightStyle.swift */,
 				350A827826857ADF00D8372C /* UITextView+Highlight.swift */,
 				354717B826809BBD008184CD /* WKWebView+Highlight.swift */,
@@ -75,6 +113,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		350A82802685AF4500D8372C /* HighlightTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 350A828B2685AF4500D8372C /* Build configuration list for PBXNativeTarget "HighlightTests" */;
+			buildPhases = (
+				350A827D2685AF4500D8372C /* Sources */,
+				350A827E2685AF4500D8372C /* Frameworks */,
+				350A827F2685AF4500D8372C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				350A82882685AF4500D8372C /* PBXTargetDependency */,
+			);
+			name = HighlightTests;
+			productName = HighlightTests;
+			productReference = 350A82812685AF4500D8372C /* HighlightTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		354717A2268093CD008184CD /* Highlight */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 354717AB268093CD008184CD /* Build configuration list for PBXNativeTarget "Highlight" */;
@@ -99,8 +155,12 @@
 		3547179A268093CD008184CD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					350A82802685AF4500D8372C = {
+						CreatedOnToolsVersion = 12.5;
+					};
 					354717A2268093CD008184CD = {
 						CreatedOnToolsVersion = 12.5;
 						LastSwiftMigration = 1250;
@@ -121,11 +181,19 @@
 			projectRoot = "";
 			targets = (
 				354717A2268093CD008184CD /* Highlight */,
+				350A82802685AF4500D8372C /* HighlightTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		350A827F2685AF4500D8372C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		354717A1268093CD008184CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,6 +205,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		350A827D2685AF4500D8372C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				350A82842685AF4500D8372C /* HighlightTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3547179F268093CD008184CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,12 +220,57 @@
 				354717B02680941B008184CD /* HighlightStyle.swift in Sources */,
 				350A827926857ADF00D8372C /* UITextView+Highlight.swift in Sources */,
 				354717B926809BBE008184CD /* WKWebView+Highlight.swift in Sources */,
+				350A827B2685A0D800D8372C /* Highlighter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		350A82882685AF4500D8372C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 354717A2268093CD008184CD /* Highlight */;
+			targetProxy = 350A82872685AF4500D8372C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		350A82892685AF4500D8372C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GG76KD534U;
+				INFOPLIST_FILE = Tests/HighlightTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = data.leonandvane.highlight.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		350A828A2685AF4500D8372C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GG76KD534U;
+				INFOPLIST_FILE = Tests/HighlightTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = data.leonandvane.highlight.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		354717A9268093CD008184CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -202,7 +323,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -260,7 +381,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -326,6 +447,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		350A828B2685AF4500D8372C /* Build configuration list for PBXNativeTarget "HighlightTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				350A82892685AF4500D8372C /* Debug */,
+				350A828A2685AF4500D8372C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3547179D268093CD008184CD /* Build configuration list for PBXProject "Highlight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
