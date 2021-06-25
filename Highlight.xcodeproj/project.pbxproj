@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		350A82772685765600D8372C /* highlightjs in Resources */ = {isa = PBXBuildFile; fileRef = 350A82762685765600D8372C /* highlightjs */; };
+		350A827926857ADF00D8372C /* UITextView+Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350A827826857ADF00D8372C /* UITextView+Highlight.swift */; };
 		354717B02680941B008184CD /* HighlightStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354717AE2680941B008184CD /* HighlightStyle.swift */; };
 		354717B926809BBE008184CD /* WKWebView+Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354717B826809BBD008184CD /* WKWebView+Highlight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		350A82762685765600D8372C /* highlightjs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = highlightjs; path = Resources/highlightjs; sourceTree = "<group>"; };
+		350A827826857ADF00D8372C /* UITextView+Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Highlight.swift"; sourceTree = "<group>"; };
 		354717A3268093CD008184CD /* Highlight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Highlight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		354717A7268093CD008184CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		354717AE2680941B008184CD /* HighlightStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightStyle.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				354717AE2680941B008184CD /* HighlightStyle.swift */,
+				350A827826857ADF00D8372C /* UITextView+Highlight.swift */,
 				354717B826809BBD008184CD /* WKWebView+Highlight.swift */,
 				354717A7268093CD008184CD /* Info.plist */,
 				350A82762685765600D8372C /* highlightjs */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				354717B02680941B008184CD /* HighlightStyle.swift in Sources */,
+				350A827926857ADF00D8372C /* UITextView+Highlight.swift in Sources */,
 				354717B926809BBE008184CD /* WKWebView+Highlight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
