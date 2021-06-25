@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		354717A8268093CD008184CD /* Highlight.h in Headers */ = {isa = PBXBuildFile; fileRef = 354717A6268093CD008184CD /* Highlight.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		350A82772685765600D8372C /* highlightjs in Resources */ = {isa = PBXBuildFile; fileRef = 350A82762685765600D8372C /* highlightjs */; };
 		354717B02680941B008184CD /* HighlightStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354717AE2680941B008184CD /* HighlightStyle.swift */; };
-		354717B32680945D008184CD /* Highlight.js in Resources */ = {isa = PBXBuildFile; fileRef = 354717B22680945D008184CD /* Highlight.js */; };
 		354717B926809BBE008184CD /* WKWebView+Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354717B826809BBD008184CD /* WKWebView+Highlight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		350A82762685765600D8372C /* highlightjs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = highlightjs; path = Resources/highlightjs; sourceTree = "<group>"; };
 		354717A3268093CD008184CD /* Highlight.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Highlight.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		354717A6268093CD008184CD /* Highlight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Highlight.h; sourceTree = "<group>"; };
 		354717A7268093CD008184CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		354717AE2680941B008184CD /* HighlightStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightStyle.swift; sourceTree = "<group>"; };
-		354717B22680945D008184CD /* Highlight.js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Highlight.js; sourceTree = "<group>"; };
 		354717B826809BBD008184CD /* WKWebView+Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Highlight.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -52,13 +50,13 @@
 		354717A5268093CD008184CD /* Highlight */ = {
 			isa = PBXGroup;
 			children = (
-				354717A6268093CD008184CD /* Highlight.h */,
 				354717AE2680941B008184CD /* HighlightStyle.swift */,
 				354717B826809BBD008184CD /* WKWebView+Highlight.swift */,
-				354717B22680945D008184CD /* Highlight.js */,
 				354717A7268093CD008184CD /* Info.plist */,
+				350A82762685765600D8372C /* highlightjs */,
 			);
-			path = Highlight;
+			name = Highlight;
+			path = Sources/Highlight;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -68,7 +66,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				354717A8268093CD008184CD /* Highlight.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				354717B32680945D008184CD /* Highlight.js in Resources */,
+				350A82772685765600D8372C /* highlightjs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +277,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Highlight/Info.plist;
+				INFOPLIST_FILE = Sources/Highlight/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -306,7 +303,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Highlight/Info.plist;
+				INFOPLIST_FILE = Sources/Highlight/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

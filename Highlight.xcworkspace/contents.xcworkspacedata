@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Repospect.xcodeproj">
+      location = "group:Highlight.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:../Highlight.xcodeproj">
+      location = "group:Examples/Repospect/Repospect.xcodeproj">
    </FileRef>
 </Workspace>
