@@ -11,12 +11,7 @@ import JavaScriptCore
 extension UITextView {
 
     public func loadCode(_ code: String, style: HighlightStyle = .default) {
-        #if SWIFT_PACKAGE
-        let bundle = Bundle.module
-        #else
-        let bundle = Bundle(for: Highlighter.self)
-        #endif
-        let baseURL = bundle.resourceURL!.appendingPathComponent("highlightjs")
+        let baseURL = Bundle.module.resourceURL!.appendingPathComponent("highlightjs")
 
         let jsURL = baseURL.appendingPathComponent("highlight.min.js")
         let jsContents = try! String(contentsOf: jsURL)

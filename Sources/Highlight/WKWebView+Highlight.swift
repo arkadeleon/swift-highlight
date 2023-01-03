@@ -11,12 +11,7 @@ extension WKWebView {
 
     @discardableResult
     public func loadCode(_ code: String, style: HighlightStyle = .default) -> WKNavigation? {
-        #if SWIFT_PACKAGE
-        let bundle = Bundle.module
-        #else
-        let bundle = Bundle(for: Highlighter.self)
-        #endif
-        let baseURL = bundle.resourceURL!.appendingPathComponent("highlightjs")
+        let baseURL = Bundle.module.resourceURL!.appendingPathComponent("highlightjs")
 
         let html = """
         <!doctype html>
