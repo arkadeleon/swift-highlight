@@ -1,3 +1,1 @@
-# Highlight
-
-A description of this package.
+# Swift Highlight
