@@ -19,7 +19,10 @@ let package = Package(
     targets: [
         .target(
             name: "Highlight",
-            resources: [.copy("Resources/highlightjs")]),
+            resources: [
+                .copy("Resources/highlightjs"),
+                .copy("Resources/highlightjs-line-numbers"),
+            ]),
         .testTarget(
             name: "HighlightTests",
             dependencies: ["Highlight"]),

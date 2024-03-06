@@ -11,15 +11,15 @@ extension WKWebView {
 
     @discardableResult
     public func loadCode(_ code: String, style: HighlightStyle = .default) -> WKNavigation? {
-        let baseURL = Bundle.module.resourceURL!.appendingPathComponent("highlightjs")
+        let baseURL = Bundle.module.resourceURL!
 
         let html = """
         <!doctype html>
         <meta charset="utf-8">
         <meta name="viewport" content="height=device-height, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <link rel="stylesheet" href="styles/\(style.rawValue).min.css">
-        <script src="highlight.min.js"></script>
-        <script src="highlightjs-line-numbers.min.js"></script>
+        <link rel="stylesheet" href="highlightjs/styles/\(style.rawValue).min.css">
+        <script src="highlightjs/highlight.min.js"></script>
+        <script src="highlightjs-line-numbers/highlightjs-line-numbers.min.js"></script>
         <script>
             hljs.highlightAll();
             hljs.initLineNumbersOnLoad();
