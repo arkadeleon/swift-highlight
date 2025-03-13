@@ -1,33 +1,33 @@
 //
-//  UITextView+Highlight.swift
+//  NSAttributedString+Highlight.swift
 //  Highlight
 //
 //  Created by Leon Li on 2021/6/25.
 //
 
-import UIKit
+import Foundation
 import JavaScriptCore
 
-extension UITextView {
+extension NSAttributedString {
 
-    public func loadCode(_ code: String, style: HighlightStyle = .default) {
+    public convenience init?(code: String, style: String = "default") throws {
         let baseURL = Bundle.module.resourceURL!.appendingPathComponent("highlightjs")
 
         let jsURL = baseURL.appendingPathComponent("highlight.min.js")
-        let jsContents = try! String(contentsOf: jsURL)
+        let jsContents = try String(contentsOf: jsURL)
 
-        let cssURL = baseURL.appendingPathComponent("styles/\(style.rawValue).min.css")
-        let cssContents = try! String(contentsOf: cssURL)
+        let cssURL = baseURL.appendingPathComponent("styles/\(style).min.css")
+        let cssContents = try String(contentsOf: cssURL)
 
         let context = JSContext()!
         context.evaluateScript(jsContents)
 
         guard let hljs = context.objectForKeyedSubscript("hljs") else {
-            return
+            return nil
         }
 
         guard let highlightedCode = hljs.invokeMethod("highlightAuto", withArguments: [code])?.objectForKeyedSubscript("value")?.toString() else {
-            return
+            return nil
         }
 
         let html = """
@@ -36,7 +36,7 @@ extension UITextView {
         """
 
         guard let data = html.data(using: .utf8) else {
-            return
+            return nil
         }
 
         let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
@@ -44,6 +44,6 @@ extension UITextView {
             .characterEncoding: String.Encoding.utf8.rawValue
         ]
 
-        attributedText = try? NSAttributedString(data: data, options: options, documentAttributes: nil)
+        try self.init(data: data, options: options, documentAttributes: nil)
     }
 }

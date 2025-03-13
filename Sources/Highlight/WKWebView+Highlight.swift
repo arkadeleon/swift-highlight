@@ -10,14 +10,12 @@ import WebKit
 extension WKWebView {
 
     @discardableResult
-    public func loadCode(_ code: String, style: HighlightStyle = .default) -> WKNavigation? {
-        let baseURL = Bundle.module.resourceURL!
-
+    public func loadCode(_ code: String, style: String = "default") -> WKNavigation? {
         let html = """
         <!doctype html>
         <meta charset="utf-8">
         <meta name="viewport" content="height=device-height, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-        <link rel="stylesheet" href="highlightjs/styles/\(style.rawValue).min.css">
+        <link rel="stylesheet" href="highlightjs/styles/\(style).min.css">
         <script src="highlightjs/highlight.min.js"></script>
         <script src="highlightjs-line-numbers/highlightjs-line-numbers.min.js"></script>
         <script>
@@ -50,6 +48,6 @@ extension WKWebView {
         <pre><code>\(code)</code></pre>
         """
 
-        return loadHTMLString(html, baseURL: baseURL)
+        return loadHTMLString(html, baseURL: Bundle.module.resourceURL!)
     }
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		352AAD69251D9713006929BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352AAD67251D9713006929BE /* LaunchScreen.storyboard */; };
 		352AAD72251D97CA006929BE /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352AAD71251D97CA006929BE /* Branch.swift */; };
 		352AAD75251D9A71006929BE /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352AAD74251D9A71006929BE /* Tree.swift */; };
+		353725EA2D82E540008590F6 /* Highlight in Frameworks */ = {isa = PBXBuildFile; productRef = 353725E92D82E540008590F6 /* Highlight */; };
 		3593154629641B8100167448 /* Highlight in Frameworks */ = {isa = PBXBuildFile; productRef = 3593154529641B8100167448 /* Highlight */; };
 		35ABF5982520832700C6D1D8 /* RepoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABF5972520832700C6D1D8 /* RepoViewController.swift */; };
 		35ABF59B2520834500C6D1D8 /* TreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35ABF59A2520834500C6D1D8 /* TreeViewController.swift */; };
@@ -32,7 +33,6 @@
 		352AAD6A251D9713006929BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		352AAD71251D97CA006929BE /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
 		352AAD74251D9A71006929BE /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
-		3593154329641B4400167448 /* highlight */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = highlight; path = ../..; sourceTree = "<group>"; };
 		35ABF5972520832700C6D1D8 /* RepoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewController.swift; sourceTree = "<group>"; };
 		35ABF59A2520834500C6D1D8 /* TreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeViewController.swift; sourceTree = "<group>"; };
 		35ABF59D2520835600C6D1D8 /* BlobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3593154629641B8100167448 /* Highlight in Frameworks */,
+				353725EA2D82E540008590F6 /* Highlight in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				352AAD5B251D970F006929BE /* Repospect */,
-				3593154229641B4400167448 /* Packages */,
 				352AAD5A251D970E006929BE /* Products */,
 				3593154429641B8100167448 /* Frameworks */,
 			);
@@ -87,14 +87,6 @@
 			path = Repospect;
 			sourceTree = "<group>";
 		};
-		3593154229641B4400167448 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				3593154329641B4400167448 /* highlight */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		3593154429641B8100167448 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +112,7 @@
 			name = Repospect;
 			packageProductDependencies = (
 				3593154529641B8100167448 /* Highlight */,
+				353725E92D82E540008590F6 /* Highlight */,
 			);
 			productName = Repospect;
 			productReference = 352AAD59251D970E006929BE /* Repospect.app */;
@@ -148,6 +141,9 @@
 				Base,
 			);
 			mainGroup = 352AAD50251D970E006929BE;
+			packageReferences = (
+				353725E82D82E540008590F6 /* XCLocalSwiftPackageReference "../../../swift-highlight" */,
+			);
 			productRefGroup = 352AAD5A251D970E006929BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -387,7 +383,18 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		353725E82D82E540008590F6 /* XCLocalSwiftPackageReference "../../../swift-highlight" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../swift-highlight";
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		353725E92D82E540008590F6 /* Highlight */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Highlight;
+		};
 		3593154529641B8100167448 /* Highlight */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Highlight;

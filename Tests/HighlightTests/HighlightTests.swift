@@ -17,13 +17,8 @@ class HighlightTests: XCTestCase {
 
     """
 
-    func testTextView() {
-        let textView = UITextView()
-        textView.loadCode(code)
-        XCTAssert(textView.text == code)
+    func testAttributedString() throws {
+        let attributedString = try NSAttributedString(code: code)!
+        XCTAssert(attributedString.string == code)
     }
-
-    static var allTests = [
-        ("testTextView", testTextView),
-    ]
 }
