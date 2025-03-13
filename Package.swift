@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Highlight",
+    name: "swift-highlight",
     platforms: [
         .macOS(.v10_13),
         .iOS(.v11),
