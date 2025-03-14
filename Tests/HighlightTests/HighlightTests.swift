@@ -18,7 +18,7 @@ class HighlightTests: XCTestCase {
     """
 
     func testAttributedString() throws {
-        let attributedString = try NSAttributedString(code: code)!
+        let attributedString = try NSAttributedString(text: code)!
         XCTAssert(attributedString.string == code)
     }
 }

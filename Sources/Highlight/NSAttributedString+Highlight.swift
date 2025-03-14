@@ -10,13 +10,13 @@ import JavaScriptCore
 
 extension NSAttributedString {
 
-    public convenience init?(code: String, style: String = "default") throws {
+    public convenience init?(text: String, highlightStyle: String = "default") throws {
         let baseURL = Bundle.module.resourceURL!.appendingPathComponent("highlightjs")
 
         let jsURL = baseURL.appendingPathComponent("highlight.min.js")
         let jsContents = try String(contentsOf: jsURL)
 
-        let cssURL = baseURL.appendingPathComponent("styles/\(style).min.css")
+        let cssURL = baseURL.appendingPathComponent("styles/\(highlightStyle).min.css")
         let cssContents = try String(contentsOf: cssURL)
 
         let context = JSContext()!
@@ -26,7 +26,7 @@ extension NSAttributedString {
             return nil
         }
 
-        guard let highlightedCode = hljs.invokeMethod("highlightAuto", withArguments: [code])?.objectForKeyedSubscript("value")?.toString() else {
+        guard let highlightedCode = hljs.invokeMethod("highlightAuto", withArguments: [text])?.objectForKeyedSubscript("value")?.toString() else {
             return nil
         }
 
