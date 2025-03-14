@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 class RepoViewController: UIViewController {
-    
+
     @IBOutlet weak var searchBar: UISearchBar!
 
     var treeViewController: TreeViewController!
@@ -17,7 +17,7 @@ class RepoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        searchBar.text = "arkadeleon/highlight"
+        searchBar.text = "arkadeleon/swift-highlight"
         search()
     }
 

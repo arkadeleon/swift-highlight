@@ -40,48 +40,34 @@ class TreeViewController: UIViewController {
 
         switch tree {
         case .root(let owner, let repo):
-            let url = URL(string: "https://api.github.com/repos/\(owner)/\(repo)/branches")!
-            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                guard let data = data else {
-                    return
-                }
-                guard let branches = try? JSONDecoder().decode([Branch].self, from: data) else {
-                    return
-                }
+            Task {
+                let branchsURL = URL(string: "https://api.github.com/repos/\(owner)/\(repo)/branches")!
+                let (branchsData, _) = try await URLSession.shared.data(from: branchsURL)
+
+                let branches = try JSONDecoder().decode([Branch].self, from: branchsData)
                 guard let branch = branches.first else {
                     return
                 }
-                let url = URL(string: "https://api.github.com/repos/\(owner)/\(repo)/git/trees/\(branch.commit.sha)")!
-                let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                    guard let data = data else {
-                        return
-                    }
-                    guard let tree = try? JSONDecoder().decode(Repospect.Tree.self, from: data) else {
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self.nodes = tree.tree
-                        self.tableView.reloadData()
-                    }
-                }
-                task.resume()
+
+                let treeURL = URL(string: "https://api.github.com/repos/\(owner)/\(repo)/git/trees/\(branch.commit.sha)")!
+                let (treeData, _) = try await URLSession.shared.data(from: treeURL)
+
+                let tree = try JSONDecoder().decode(Repospect.Tree.self, from: treeData)
+
+                nodes = tree.tree
+                tableView.reloadData()
             }
-            task.resume()
         case .node(let node):
             title = node.path
-            let task = URLSession.shared.dataTask(with: node.url) { (data, response, error) in
-                guard let data = data else {
-                    return
-                }
-                guard let tree = try? JSONDecoder().decode(Repospect.Tree.self, from: data) else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    self.nodes = tree.tree
-                    self.tableView.reloadData()
-                }
+
+            Task {
+                let (data, _) = try await URLSession.shared.data(from: node.url)
+
+                let tree = try JSONDecoder().decode(Repospect.Tree.self, from: data)
+
+                nodes = tree.tree
+                tableView.reloadData()
             }
-            task.resume()
         }
     }
 

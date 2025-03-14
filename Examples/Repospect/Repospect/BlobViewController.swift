@@ -5,9 +5,9 @@
 //  Created by Leon Li on 2020/10/12.
 //
 
+import Highlight
 import UIKit
 import WebKit
-import Highlight
 
 class BlobViewController: UIViewController {
 
@@ -32,23 +32,20 @@ class BlobViewController: UIViewController {
         webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(webView)
 
-        let task = URLSession.shared.dataTask(with: node.url) { (data, response, error) in
-            guard let data = data else {
-                return
-            }
-            guard let blob = try? JSONDecoder().decode(Blob.self, from: data) else {
-                return
-            }
+        Task {
+            let (data, _) = try await URLSession.shared.data(from: node.url)
+
+            let blob = try JSONDecoder().decode(Blob.self, from: data)
+
             guard let decodedData = Data(base64Encoded: blob.content, options: [.ignoreUnknownCharacters]) else {
                 return
             }
+
             guard let decodedString = String(data: decodedData, encoding: .utf8) else {
                 return
             }
-            DispatchQueue.main.async {
-                self.webView.loadCode(decodedString)
-            }
+
+            webView.loadCode(decodedString)
         }
-        task.resume()
     }
 }
