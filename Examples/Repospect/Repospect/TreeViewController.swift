@@ -54,7 +54,7 @@ class TreeViewController: UIViewController {
 
                 let tree = try JSONDecoder().decode(Repospect.Tree.self, from: treeData)
 
-                nodes = tree.tree
+                nodes = tree.tree.sorted()
                 tableView.reloadData()
             }
         case .node(let node):
@@ -65,7 +65,7 @@ class TreeViewController: UIViewController {
 
                 let tree = try JSONDecoder().decode(Repospect.Tree.self, from: data)
 
-                nodes = tree.tree
+                nodes = tree.tree.sorted()
                 tableView.reloadData()
             }
         }

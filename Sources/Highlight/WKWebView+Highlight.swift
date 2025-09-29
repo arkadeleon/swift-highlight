@@ -10,7 +10,7 @@ import WebKit
 extension WKWebView {
 
     @discardableResult
-    public func highlightText(_ text: String, style: String = "default") -> WKNavigation? {
+    public func highlightCode(_ code: String, style: String = "default") -> WKNavigation? {
         let html = """
         <!doctype html>
         <meta charset="utf-8">
@@ -26,7 +26,7 @@ extension WKWebView {
             white-space: pre;
           }
         </style>
-        <pre><code>\(text)</code></pre>
+        <pre><code>\(code)</code></pre>
         """
 
         return loadHTMLString(html, baseURL: Bundle.module.resourceURL!)

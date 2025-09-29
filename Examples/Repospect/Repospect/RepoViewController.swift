@@ -44,13 +44,15 @@ class RepoViewController: UIViewController {
         treeViewController = TreeViewController(tree: .root(owner: owner, repo: repo))
         addChild(treeViewController)
         view.addSubview(treeViewController.view)
+        treeViewController.view.translatesAutoresizingMaskIntoConstraints = false
         treeViewController.didMove(toParent: self)
 
-        treeViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        treeViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        treeViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        treeViewController.view.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
-        treeViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            treeViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            treeViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            treeViewController.view.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            treeViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
     }
 }
 

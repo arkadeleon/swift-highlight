@@ -5,16 +5,11 @@ import PackageDescription
 
 let package = Package(
     name: "swift-highlight",
-    platforms: [
-        .macOS(.v10_14),
-        .iOS(.v12),
-        .tvOS(.v12),
-        .visionOS(.v1),
-    ],
     products: [
         .library(
             name: "Highlight",
-            targets: ["Highlight"]),
+            targets: ["Highlight"]
+        ),
     ],
     targets: [
         .target(
@@ -22,9 +17,11 @@ let package = Package(
             resources: [
                 .copy("Resources/highlightjs"),
                 .copy("Resources/highlightjs-line-numbers"),
-            ]),
+            ]
+        ),
         .testTarget(
             name: "HighlightTests",
-            dependencies: ["Highlight"]),
+            dependencies: ["Highlight"]
+        ),
     ]
 )

@@ -10,7 +10,7 @@ import JavaScriptCore
 
 extension NSAttributedString {
 
-    public convenience init?(text: String, highlightStyle: String = "default") throws {
+    public convenience init(code: String, highlightStyle: String = "default") throws {
         let baseURL = Bundle.module.resourceURL!.appendingPathComponent("highlightjs")
 
         let jsURL = baseURL.appendingPathComponent("highlight.min.js")
@@ -23,11 +23,12 @@ extension NSAttributedString {
         context.evaluateScript(jsContents)
 
         guard let hljs = context.objectForKeyedSubscript("hljs") else {
-            return nil
+            throw HighlightError.hljsObjectNotFound
         }
 
-        guard let highlightedCode = hljs.invokeMethod("highlightAuto", withArguments: [text])?.objectForKeyedSubscript("value")?.toString() else {
-            return nil
+        guard let result = hljs.invokeMethod("highlightAuto", withArguments: [code]),
+              let highlightedCode = result.objectForKeyedSubscript("value")?.toString() else {
+            throw HighlightError.highlightAutoFailed
         }
 
         let html = """
@@ -36,7 +37,7 @@ extension NSAttributedString {
         """
 
         guard let data = html.data(using: .utf8) else {
-            return nil
+            throw HighlightError.invalidEncoding
         }
 
         let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [

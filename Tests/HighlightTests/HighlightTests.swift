@@ -17,8 +17,14 @@ class HighlightTests: XCTestCase {
 
     """
 
+    @available(macOS 12, iOS 15, tvOS 15, watchOS 8, *)
     func testAttributedString() throws {
-        let attributedString = try NSAttributedString(text: code)!
+        let attributedString = try AttributedString(code: code)
+        XCTAssert(String(attributedString.characters) == code)
+    }
+
+    func testNSAttributedString() throws {
+        let attributedString = try NSAttributedString(code: code)
         XCTAssert(attributedString.string == code)
     }
 }
