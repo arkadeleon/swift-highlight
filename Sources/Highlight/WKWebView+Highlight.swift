@@ -10,13 +10,20 @@ import WebKit
 extension WKWebView {
     @discardableResult
     public func highlightCode(_ code: String, style: String = "default") -> WKNavigation? {
+        highlightCode(code, lightStyle: style, darkStyle: style)
+    }
+
+    @discardableResult
+    public func highlightCode(_ code: String, lightStyle: String = "default", darkStyle: String = "dark") -> WKNavigation? {
         let html = """
         <!doctype html>
         <html lang="en">
         <head>
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-          <link rel="stylesheet" href="highlightjs/styles/\(style).min.css">
+          <link rel="stylesheet" href="highlightjs/styles/\(lightStyle).min.css" media="(prefers-color-scheme: light)">
+          <link rel="stylesheet" href="highlightjs/styles/\(darkStyle).min.css" media="(prefers-color-scheme: dark)">
+          <link rel="stylesheet" href="highlightjs/styles/\(lightStyle).min.css" media="(prefers-color-scheme: no-preference)">
           <script src="highlightjs/highlight.min.js"></script>
           <script src="highlightjs-line-numbers/highlightjs-line-numbers.min.js"></script>
           <style>
