@@ -9,7 +9,6 @@ import Foundation
 import JavaScriptCore
 
 extension NSAttributedString {
-
     public convenience init(code: String, highlightStyle: String = "default") throws {
         let baseURL = Bundle.module.resourceURL!.appendingPathComponent("highlightjs")
 
