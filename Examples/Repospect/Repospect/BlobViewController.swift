@@ -45,7 +45,7 @@ class BlobViewController: UIViewController {
                 return
             }
 
-            webView.highlightCode(decodedString)
+            webView.highlightCode(decodedString, lightStyle: "github", darkStyle: "github-dark")
         }
     }
 }

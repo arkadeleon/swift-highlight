@@ -8,6 +8,12 @@ It uses `highlight.js` under the hood and gives you simple APIs for:
 - `AttributedString`
 - `WKWebView`
 
+## Screenshots
+
+| Light | Dark |
+| --- | --- |
+| ![Light mode screenshot](Screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%20Light.png) | ![Dark mode screenshot](Screenshots/Simulator%20Screenshot%20-%20iPhone%2017%20Pro%20-%20Dark.png) |
+
 ## Features
 
 - Highlight code with very little setup
