@@ -46,6 +46,10 @@ extension WKWebView {
               margin: 0;
             }
 
+            pre code.hljs {
+              overflow-x: visible;
+            }
+
             code {
               white-space: pre;
               font-family: inherit;
